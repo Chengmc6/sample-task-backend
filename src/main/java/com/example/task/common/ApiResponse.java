@@ -1,5 +1,7 @@
 package com.example.task.common;
 
+import org.springframework.http.HttpStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,9 @@ public class ApiResponse<T> {
     // 失败的响应，带错误码和消息
     public static <T> ApiResponse<T> error(int code, String message) {
         return new ApiResponse<>(code, message, null);
+    }
+    public static <T> ApiResponse<T> error(HttpStatus status,String message){
+        return new ApiResponse<>(status.value(),message,null);
     }
     // 失败的响应，带默认错误码和自定义消息
     public static <T> ApiResponse<T> error(String message) {
