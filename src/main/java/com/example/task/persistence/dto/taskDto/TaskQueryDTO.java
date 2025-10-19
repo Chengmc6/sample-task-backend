@@ -26,13 +26,12 @@ public class TaskQueryDTO {
     private Integer priority; // 任务优先级
 
     private LocalDate dueDate; // 截止日期
-
-    @Min(value = 1, message = "每页记录数必须大于0")
-    private Integer pageNum = 1; // 页码，默认值为1
+    
+    private Integer pageNum=1; // 页码，默认值为1
 
     @Min(value = 1, message = "每页记录数必须大于0")
     @Max(value = 50, message = "每页记录数不能超过50")
-    private Integer pageSize = 10; // 每页记录数，默认值为10
+    private Integer pageSize = 20; // 每页记录数，默认值为10
 
 
     private String sortBy = "created_at"; // 排序字段，默认按创建时间排序
