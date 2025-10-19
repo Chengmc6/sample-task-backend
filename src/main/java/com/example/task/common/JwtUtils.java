@@ -25,12 +25,12 @@ public class JwtUtils {
     public static String getToken(Long userId,String username){
         // 使用HS256算法生成JWT
         return Jwts.builder()
-                .setSubject(String.valueOf(userId))
-                .claim("username", username)
-                .setIssuedAt(new Date())
+                .setSubject(String.valueOf(userId))//以用户id作为token主题
+                .claim("username", username)//可以加入想要加入的字段，供后续使用
+                .setIssuedAt(new Date())//token的签发日期
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1天后过期   
                 .signWith(KEY, SignatureAlgorithm.HS256)
-                .compact();
+                .compact();//打包token里的信息
     }
     // 解析JWT并提取用户ID
     public static Long parseToken(String token){
