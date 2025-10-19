@@ -91,7 +91,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
                      .eq("user_id", userId)
                      .set("status", 3)// 3表示已删除
                      .set("updated_at", LocalDateTime.now());
-        taskMapper.update(null, updateWrapper);
+        taskMapper.update(new Task(), updateWrapper);
     }
 
     // 任务详情展示
