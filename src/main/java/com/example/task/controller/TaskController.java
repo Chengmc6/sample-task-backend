@@ -76,6 +76,7 @@ public class TaskController {
     }
 
     // 更新任务
+    @PostMapping("/update")
     public ApiResponse<TaskResponseDTO> updateTask(@RequestBody @Valid UpdateTaskRequestDTO updateDto,
             @AuthenticationPrincipal CustomerUserDetails userDetails) {
             Long userId = userDetails.getId(); // 从认证信息中获取用户ID
